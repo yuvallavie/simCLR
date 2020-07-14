@@ -1,2 +1,2 @@
 # simCLR
-Comparing unsupervised and unsupervised representation learning
+Comparing unsupervised and supervised representation learning
