@@ -22,5 +22,9 @@ Just place the extracted ResNet50x1.pth file in the checkpoints folder and run t
 <br>
 python main.py
 
+<br>
+Requirements:
+<br>
+- PyTorch
 It's obvious that supervised representation learning is still better but unsupervised representation is catching up and may soon replace the need for many labeled samples.
 
