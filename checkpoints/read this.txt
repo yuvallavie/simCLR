@@ -1,0 +1,4 @@
+1.) Download the checkpoints from this link
+https://drive.google.com/file/d/13x2-QBIF1s6EkTWf1AjHEGUc4v047QVF/view?usp=sharing
+
+2.) Extract the contents into this folder (checkpoints) 
