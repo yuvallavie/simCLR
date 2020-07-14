@@ -20,12 +20,13 @@ File locations:
 # Utilities
 import numpy as np;
 import sys;
+import os;
 
 # Allows me to structure the folders and import
 sys.path.append('./models')
 
 # Torch CORE
-import torch
+import torch;
 import torch.nn.functional as F;
 import torch.optim as optim;
 from torch.optim import lr_scheduler;
@@ -49,12 +50,21 @@ The quality of the representations is measured by multiclass logistic regression
 
 
 #%%
+# Make sure that the model file has been downloaded before starting
+downloaded = os.path.isfile('./checkpoints/resnet50-1x.pth');
+if(downloaded == False):
+    print("You have not downloaded the checkpoints, please refer to the readme file at the checkpoints directory..");
+    exit(1);
+
+print("Checkpoint exists, continuing..");
+
+#%%
 from Data_Utilities import Get_SupervisedLoaders;
 print("------------------------------------------------------------------")
 print("                       Downloading the data                       ")
 print("------------------------------------------------------------------")
 # Get the STL-10 Data set
-test_loader , train_val_loaders = Get_SupervisedLoaders(batch_size = 256,validation_size = 0.2,root='../data');
+test_loader , train_val_loaders = Get_SupervisedLoaders(batch_size = 256,validation_size = 0.2,root='./data');
 
 # Define the class names
 classes = ['airplane', 'bird', 'car', 'cat', 'deer', 'dog', 'horse', 'monkey', 'ship', 'truck']
