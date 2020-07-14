@@ -7,6 +7,7 @@ this file is added as a resource to my seminar presentation at Bar-Ilan Universi
 Author : Yuval Lavie
 
 File locations:
+<br>
     - ../data
     - ../models
     - ../checkpoints
