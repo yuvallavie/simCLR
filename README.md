@@ -26,5 +26,7 @@ python main.py
 Requirements:
 <br>
 - PyTorch
+<br>
+
 It's obvious that supervised representation learning is still better but unsupervised representation is catching up and may soon replace the need for many labeled samples.
 
