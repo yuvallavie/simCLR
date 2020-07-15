@@ -64,7 +64,7 @@ print("------------------------------------------------------------------")
 print("                       Downloading the data                       ")
 print("------------------------------------------------------------------")
 # Get the STL-10 Data set
-test_loader , train_val_loaders = Get_SupervisedLoaders(batch_size = 256,validation_size = 0.2,root='./data');
+test_loader , train_val_loaders = Get_SupervisedLoaders(batch_size = 32,validation_size = 0.2,root='./data');
 
 # Define the class names
 classes = ['airplane', 'bird', 'car', 'cat', 'deer', 'dog', 'horse', 'monkey', 'ship', 'truck']
