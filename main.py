@@ -47,17 +47,34 @@ The quality of the representations is measured by multiclass logistic regression
 - Validation set (1k)
 - Test set (8k).
  '''
+#%%
+# Handle the arguments (epochs and validation size);
+args = sys.argv;
+print("Arguments are:",sys.argv)
+
+epochs_num = 20;
+validation_size = 0.2;
+print(len(args),args[1],args[2]);
+if(len(args) >= 3):
+    epochs_num = int(args[1]);
+    validation_size = float(args[2]);
+
 
 
 #%%
 # Make sure that the model file has been downloaded before starting
 downloaded = os.path.isfile('./checkpoints/resnet50-1x.pth');
 if(downloaded == False):
-    print("You have not downloaded the checkpoints, please refer to the readme file at the checkpoints directory..");
+    print("You have not downloaded the checkpoints, please refer to the readme file or follow the instructions below");
+    print("1. Download the required model weights from https://drive.google.com/file/d/13x2-QBIF1s6EkTWf1AjHEGUc4v047QVF/view?usp=sharing")
+    print("2. Extract the downloaded files content into the checkpoints folder")
+    print("3. Run this program again")
     exit(1);
 
 print("Checkpoint exists, continuing..");
 
+print("We will compare the results of fine-tuning a linear classifier on top of the representations learned by simCLR and by a supervised resnet50 pretrained from pytorch. ")
+print(f"We run for {epochs_num} epochs and train on {1-validation_size} of the dataset and validate on {validation_size} ")
 #%%
 from Data_Utilities import Get_SupervisedLoaders;
 print("------------------------------------------------------------------")
@@ -68,27 +85,6 @@ test_loader , train_val_loaders = Get_SupervisedLoaders(batch_size = 32,validati
 
 # Define the class names
 classes = ['airplane', 'bird', 'car', 'cat', 'deer', 'dog', 'horse', 'monkey', 'ship', 'truck']
-
-#%%
-# Visualize the some samples from the data set
-print("------------------------------------------------------------------")
-print("                       Visualzing the data                        ")
-print("------------------------------------------------------------------")
-import matplotlib.pyplot as plt;
-
-examples = enumerate(test_loader);
-batch_idx, (example_data, example_targets) = next(examples);
-
-fig = plt.figure()
-for i in range(6):
-  plt.subplot(2,3,i+1)
-  plt.tight_layout()
-  plt.imshow(example_data[i][0], cmap='gray', interpolation='none')
-  plt.title(classes[example_targets[i]])
-  plt.xticks([])
-  plt.yticks([])
-plt.show()
-
 
 #%%
 print("------------------------------------------------------------------")
@@ -136,7 +132,7 @@ evaluator.train();
 
 print("Fine-tuning the linear evaluator model");
 # Train the network
-evaluator.fit(train_val_loaders, criterion, optimizer, scheduler, num_epochs=40);
+evaluator.fit(train_val_loaders, criterion, optimizer, scheduler, num_epochs=20);
 
 
 # Get the results on the test data
@@ -177,7 +173,7 @@ evaluator.train();
 
 print("Fine-tuning the linear evaluator model")
 # Train the network
-evaluator.fit(train_val_loaders, criterion, optimizer, scheduler, num_epochs=40);
+evaluator.fit(train_val_loaders, criterion, optimizer, scheduler, num_epochs=20);
 
 
 # Get the results on the test data
