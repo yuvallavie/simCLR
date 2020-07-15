@@ -53,7 +53,6 @@ args = sys.argv;
 
 epochs_num = 20;
 validation_size = 0.2;
-print(len(args),args[1],args[2]);
 if(len(args) >= 3):
     epochs_num = int(args[1]);
     validation_size = float(args[2]);
@@ -66,7 +65,7 @@ if(downloaded == False):
     print("1. Download the required model weights from https://drive.google.com/file/d/13x2-QBIF1s6EkTWf1AjHEGUc4v047QVF/view?usp=sharing")
     print("2. Extract the downloaded files content into the checkpoints folder")
     print("3. Run this program again")
-    exit(1);
+    sys.exit();
 
 print("Checkpoint exists, continuing..");
 
