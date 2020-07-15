@@ -50,7 +50,6 @@ The quality of the representations is measured by multiclass logistic regression
 #%%
 # Handle the arguments (epochs and validation size);
 args = sys.argv;
-print("Arguments are:",sys.argv)
 
 epochs_num = 20;
 validation_size = 0.2;
@@ -58,8 +57,6 @@ print(len(args),args[1],args[2]);
 if(len(args) >= 3):
     epochs_num = int(args[1]);
     validation_size = float(args[2]);
-
-
 
 #%%
 # Make sure that the model file has been downloaded before starting
