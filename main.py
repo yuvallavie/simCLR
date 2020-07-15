@@ -189,7 +189,7 @@ sup_acc = evaluator.calculateAccuracy(test_loader);
 import matplotlib.pyplot as plt;
 
 height = [unsup_acc, sup_acc]
-bars = ('simCLR', 'supervised')
+bars = ('simCLR\n' + '(' + str(unsup_acc) + ')', 'Supervised\n' + '(' + str(sup_acc) + ')')
 y_pos = np.arange(len(bars))
 
 plt.bar(y_pos, height, color=['red', 'cyan'])
