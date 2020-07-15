@@ -2,15 +2,13 @@
 
 # How to run it
 <br>
-Just place the extracted ResNet50x1.pth file in the checkpoints folder and run the file
-<br>
-python main.py
+1. Download the model weights from the link below and extract its content into the checkpoints folder
+- ResNet50x1 https://drive.google.com/file/d/13x2-QBIF1s6EkTWf1AjHEGUc4v047QVF/view?usp=sharing
+2. Run the system with the command python main.py
+
 
 # Description
 simCLR linear evaluation using pre-trained weights by https://github.com/google-research/simclr
-- ResNet50x1 https://drive.google.com/file/d/13x2-QBIF1s6EkTWf1AjHEGUc4v047QVF/view?usp=sharing
-  Please download this file and extract its contents to the "checkpoints" folder.
-
 this file is added as a resource to my seminar presentation at Bar-Ilan University.
 Author : Yuval Lavie
 
