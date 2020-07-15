@@ -9,6 +9,7 @@
 For the default run with 20 epochs and a validation size of 0.2:
 <br>
 - python main.py
+<br>
 For a custom run:
 <br>
 - python main.py {number of epochs} {size of validation size}
