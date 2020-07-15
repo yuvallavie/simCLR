@@ -136,7 +136,7 @@ evaluator.train();
 
 print("Fine-tuning the linear evaluator model");
 # Train the network
-evaluator.fit(train_val_loaders, criterion, optimizer, scheduler, num_epochs=20);
+evaluator.fit(train_val_loaders, criterion, optimizer, scheduler, num_epochs=40);
 
 
 # Get the results on the test data
@@ -177,7 +177,7 @@ evaluator.train();
 
 print("Fine-tuning the linear evaluator model")
 # Train the network
-evaluator.fit(train_val_loaders, criterion, optimizer, scheduler, num_epochs=20);
+evaluator.fit(train_val_loaders, criterion, optimizer, scheduler, num_epochs=40);
 
 
 # Get the results on the test data
